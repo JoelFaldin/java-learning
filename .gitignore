@@ -1,0 +1,15 @@
+# Netbeans project files
+
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb/gradle
+
+# Compiled files
+*.class
+
+# Logs and temporary files
+*.log
+*.tmp
