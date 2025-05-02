@@ -13,3 +13,4 @@ nbdist/
 # Logs and temporary files
 *.log
 *.tmp
+/ExerciseRepetitions/nbproject/private/
