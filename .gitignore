@@ -14,3 +14,4 @@ nbdist/
 *.log
 *.tmp
 /ExerciseRepetitions/nbproject/private/
+/Vectors/nbproject/private/
