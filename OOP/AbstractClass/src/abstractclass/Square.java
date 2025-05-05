@@ -1,14 +1,13 @@
 package abstractclass;
 
-public class Square extends Figure {
+public class Square implements Figure, Drawable {
     
     private double side;
 
     public Square() {
     }
 
-    public Square(double side, double x, double y) {
-        super(x, y);
+    public Square(double side) {
         this.side = side;
     }
     
@@ -16,6 +15,11 @@ public class Square extends Figure {
     public double calculateArea() {
         double result = side * side;
         return result;
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("Drawing a square! :D");
     }
     
 }

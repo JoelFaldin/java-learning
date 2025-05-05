@@ -1,14 +1,13 @@
 package abstractclass;
 
-public class Circle extends Figure {
+public class Circle implements Figure, Drawable, Rotable {
     
     private double radius;
 
     public Circle() {
     }
 
-    public Circle(double radius, double x, double y) {
-        super(x, y);
+    public Circle(double radius) {
         this.radius = radius;
     }
 
@@ -18,5 +17,15 @@ public class Circle extends Figure {
         
         double result = pi * radius * radius;
         return result;
+    }
+
+    @Override
+    public void rotate() {
+        System.out.println("Rotating the circle!");
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("Drawing a circle!");
     }
 }
