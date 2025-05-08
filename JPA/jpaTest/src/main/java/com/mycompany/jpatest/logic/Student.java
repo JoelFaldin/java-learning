@@ -65,6 +65,9 @@ public class Student implements Serializable {
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "Student{" + "id=" + id + ", name=" + name + ", lastName=" + lastName + ", birthDate=" + birthDate + '}';
+    }
 }

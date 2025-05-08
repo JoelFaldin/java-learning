@@ -1,6 +1,7 @@
 package com.mycompany.jpatest.logic;
 
 import com.mycompany.jpatest.persistence.PersistenceController;
+import java.util.ArrayList;
 
 public class Controller {
     
@@ -16,5 +17,13 @@ public class Controller {
     
     public void updateStudent(Student stud) {
         persisController.updateStudent(stud);
+    }
+    
+    public Student getStudent(int id) {
+        return persisController.getStudent(id);
+    }
+    
+    public ArrayList<Student> getStudentList() {
+        return persisController.getStudentList();
     }
 }
