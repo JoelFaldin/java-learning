@@ -1,12 +1,18 @@
 package com.mycompany.jpatest;
 
-import com.mycompany.jpatest.persistence.PersistenceController;
+import com.mycompany.jpatest.logic.Controller;
+import com.mycompany.jpatest.logic.Student;
+import java.util.Date;
 
 public class JpaTest {
 
     public static void main(String[] args) {
         
-        PersistenceController persisController = new PersistenceController();
+        Controller control = new Controller();
+        
+        Student stud1 = new Student("Jowel", "F", new Date());
+        
+        control.createStudent(stud1);
         
     }
 }

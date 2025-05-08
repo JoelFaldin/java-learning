@@ -1,0 +1,12 @@
+package com.mycompany.jpatest.logic;
+
+import com.mycompany.jpatest.persistence.PersistenceController;
+
+public class Controller {
+    
+    PersistenceController persisController = new PersistenceController();
+    
+    public void createStudent(Student stud) {
+        persisController.createStudent(stud);
+    }
+}
