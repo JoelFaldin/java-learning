@@ -10,11 +10,14 @@ public class JpaTest {
         
         Controller control = new Controller();
         
-        Student stud1 = new Student("Jowel", "F", new Date());
+        Student stud1 = new Student(30, "Jowel", "F", new Date());
         
-        control.createStudent(stud1);
+//        control.createStudent(stud1);
         
-        control.deleteStudent(101);
+//        control.deleteStudent(101);
+
+        stud1.setLastName("Java dev");
         
+        control.updateStudent(stud1);
     }
 }

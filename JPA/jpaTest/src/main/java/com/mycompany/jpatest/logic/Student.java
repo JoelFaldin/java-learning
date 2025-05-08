@@ -27,7 +27,8 @@ public class Student implements Serializable {
     public Student() {
     }
 
-    public Student(String name, String lastName, Date birthDate) {
+    public Student(int id, String name, String lastName, Date birthDate) {
+        this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.birthDate = birthDate;

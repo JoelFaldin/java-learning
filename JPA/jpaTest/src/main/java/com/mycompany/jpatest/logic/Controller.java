@@ -13,4 +13,8 @@ public class Controller {
     public void deleteStudent(int id) {
         persisController.deleteStudent(id);
     }
+    
+    public void updateStudent(Student stud) {
+        persisController.updateStudent(stud);
+    }
 }

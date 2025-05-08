@@ -20,4 +20,12 @@ public class PersistenceController {
             Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }    
+
+    public void updateStudent(Student stud) {
+        try {
+            studentJpa.edit(stud);
+        } catch (Exception ex) {
+            Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
