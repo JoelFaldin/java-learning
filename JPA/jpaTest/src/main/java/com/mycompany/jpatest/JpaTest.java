@@ -14,5 +14,7 @@ public class JpaTest {
         
         control.createStudent(stud1);
         
+        control.deleteStudent(101);
+        
     }
 }

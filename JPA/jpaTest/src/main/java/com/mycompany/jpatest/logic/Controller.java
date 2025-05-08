@@ -9,4 +9,8 @@ public class Controller {
     public void createStudent(Student stud) {
         persisController.createStudent(stud);
     }
+    
+    public void deleteStudent(int id) {
+        persisController.deleteStudent(id);
+    }
 }

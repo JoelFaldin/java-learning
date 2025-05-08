@@ -1,6 +1,9 @@
 package com.mycompany.jpatest.persistence;
 
 import com.mycompany.jpatest.logic.Student;
+import com.mycompany.jpatest.persistence.exceptions.NonexistentEntityException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class PersistenceController {
     
@@ -10,4 +13,11 @@ public class PersistenceController {
         studentJpa.create(stud);
     }
     
+    public void deleteStudent(int id) {
+        try {
+            studentJpa.destroy(id);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }    
 }
