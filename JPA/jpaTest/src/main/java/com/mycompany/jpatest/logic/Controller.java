@@ -7,6 +7,7 @@ public class Controller {
     
     PersistenceController persisController = new PersistenceController();
     
+    // Students
     public void createStudent(Student stud) {
         persisController.createStudent(stud);
     }
@@ -25,5 +26,26 @@ public class Controller {
     
     public ArrayList<Student> getStudentList() {
         return persisController.getStudentList();
+    }
+    
+    // Careers
+    public void createCareer(Career career) {
+        persisController.createCareer(career);
+    }
+    
+    public void deleteCareer(int id) {
+        persisController.deleteCareer(id);
+    }
+    
+    public void updateCareer(Career career) {
+        persisController.updateCareer(career);
+    }
+    
+    public Career getCareer(int id) {
+        return persisController.getCareer(id);
+    }
+    
+    public ArrayList<Career> getCareerList() {
+        return persisController.getCareerList();
     }
 }

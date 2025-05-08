@@ -1,8 +1,8 @@
 package com.mycompany.jpatest;
 
+import com.mycompany.jpatest.logic.Career;
 import com.mycompany.jpatest.logic.Controller;
 import com.mycompany.jpatest.logic.Student;
-import java.util.ArrayList;
 import java.util.Date;
 
 public class JpaTest {
@@ -11,25 +11,24 @@ public class JpaTest {
         
         Controller control = new Controller();
         
-//        Student stud1 = new Student(30, "Jowel", "F", new Date());
+       // Career creation:
+       Career career1 = new Career(1, "Software");
+       
+       // Saving career in db:
+       control.createCareer(career1);
+       
+       // Student creation:
+       Student stud1 = new Student(30, "Jowel", "F", new Date(), career1);
+       
+       // Save student in db:
+       control.createStudent(stud1);
+       
+       // Result:
+        System.out.println("----------------------");
+        System.out.println("STUDENT DATA");
         
-//        control.createStudent(stud1);
-        
-//        control.deleteStudent(101);
-
-//        stud1.setLastName("Java dev");
-//        
-//        control.updateStudent(stud1);
-        
-        System.out.println("------------- Individual search -----------------");
-        Student stud1 = control.getStudent(1);
-        System.out.println("The student is: " + stud1.toString());
-        
-        System.out.println("------------- Multiple search --------------------");
-        ArrayList<Student> studentList = control.getStudentList();
-        
-        for (Student stud: studentList) {
-            System.out.println("Student is: " + stud.toString());
-        }
+        Student stud2 = control.getStudent(30);
+        System.out.println("Student: " + stud2.getName() + " " + stud2.getLastName());
+        System.out.println("Is on the " + stud2.getCareer().getName() + " career!");
     }
 }

@@ -3,12 +3,13 @@
   <persistence-unit name="testJPAPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>com.mycompany.jpatest.logic.Student</class>
+    <class>com.mycompany.jpatest.logic.Career</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="{db.url}"/>
       <property name="javax.persistence.jdbc.user" value="{db.user}"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
       <property name="javax.persistence.jdbc.password" value="{db.password}"/>
-      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+      <property name="javax.persistence.schema-generation.database.action" value="create-or-extend-tables"/>
     </properties>
   </persistence-unit>
 </persistence>
