@@ -4,6 +4,7 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>com.mycompany.jpatest.logic.Student</class>
     <class>com.mycompany.jpatest.logic.Career</class>
+    <class>com.mycompany.jpatest.logic.Subject</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="{db.url}"/>
       <property name="javax.persistence.jdbc.user" value="{db.user}"/>

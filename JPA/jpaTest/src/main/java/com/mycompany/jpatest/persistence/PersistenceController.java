@@ -2,6 +2,7 @@ package com.mycompany.jpatest.persistence;
 
 import com.mycompany.jpatest.logic.Career;
 import com.mycompany.jpatest.logic.Student;
+import com.mycompany.jpatest.logic.Subject;
 import com.mycompany.jpatest.persistence.exceptions.NonexistentEntityException;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,7 @@ public class PersistenceController {
     
     StudentJpaController studentJpa = new StudentJpaController();
     CareerJpaController careerJpa = new CareerJpaController();
+    SubjectJpaController subjectJpa = new SubjectJpaController();
 
     // Students
     public void createStudent(Student stud) {
@@ -75,5 +77,37 @@ public class PersistenceController {
         ArrayList<Career> careerList = new ArrayList<>(list);
         
         return careerList;
+    }
+    
+    // Subject
+    public void createSubject(Subject subject) {
+        subjectJpa.create(subject);
+    }
+
+    public void deleteSubject(int id) {
+        try {
+            subjectJpa.destroy(id);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void updateSubject(Subject subject) {
+        try {
+            subjectJpa.edit(subject);
+        } catch (Exception ex) {
+            Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public Subject getSubject(int id) {
+        return subjectJpa.findSubject(id);
+    }
+
+    public ArrayList<Subject> getSubjectList() {
+        List<Subject> list = subjectJpa.findSubjectEntities();
+        ArrayList<Subject> subjectList = new ArrayList<>(list);
+        
+        return subjectList;
     }
 }

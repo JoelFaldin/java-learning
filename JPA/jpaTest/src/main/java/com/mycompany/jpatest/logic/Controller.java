@@ -48,4 +48,25 @@ public class Controller {
     public ArrayList<Career> getCareerList() {
         return persisController.getCareerList();
     }
+    
+    // Subjects
+    public void createSubject(Subject subject) {
+        persisController.createSubject(subject);
+    }
+    
+    public void deleteSubject(int id) {
+        persisController.deleteSubject(id);
+    }
+    
+    public void updateSubject(Subject subject) {
+        persisController.updateSubject(subject);
+    }
+    
+    public Subject getSubject(int id) {
+        return persisController.getSubject(id);
+    }
+    
+    public ArrayList<Subject> getSubjectList() {
+        return persisController.getSubjectList();
+    }
 }

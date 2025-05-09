@@ -1,16 +1,15 @@
 package com.mycompany.jpatest.logic;
 
 import java.io.Serializable;
-import java.util.LinkedList;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class Career implements Serializable {
+public class Subject implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -18,21 +17,19 @@ public class Career implements Serializable {
     
     @Basic
     private String name;
+    private String category;
     
-    @OneToMany(mappedBy = "career")
-    private LinkedList<Subject> subjectList;
+    @ManyToOne
+    private Career career;
 
-    public Career() {
+    public Subject() {
     }
 
-    public Career(int id, String name, LinkedList<Subject> subjectList) {
+    public Subject(int id, String name, String category, Career career) {
         this.id = id;
         this.name = name;
-        this.subjectList = subjectList;
-    }
-    
-    public void setSubjectList(LinkedList<Subject> subjectList) {
-        this.subjectList = subjectList;
+        this.category = category;
+        this.career = career;
     }
 
     public int getId() {
@@ -50,9 +47,22 @@ public class Career implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-    
-    public LinkedList<Subject> getSubjectList() {
-        return subjectList;
+
+    public String getCategory() {
+        return category;
     }
 
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public Career getCareer() {
+        return career;
+    }
+
+    public void setCareer(Career career) {
+        this.career = career;
+    }
+    
+    
 }
