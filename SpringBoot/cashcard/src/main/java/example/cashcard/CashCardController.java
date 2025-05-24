@@ -14,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import java.util.Optional;
 import java.net.URI;
+import java.security.Principal;
 
 @RestController
 @RequestMapping("/cashcards")
@@ -26,8 +27,8 @@ class CashCardController {
   }
 
   @GetMapping("/{requestedId}")
-  private ResponseEntity<CashCard> findById(@PathVariable Long requestedId) {
-    Optional<CashCard> cashCardOptional = cashCardRepository.findById(requestedId);
+  private ResponseEntity<CashCard> findById(@PathVariable Long requestedId, Principal principal) {
+    Optional<CashCard> cashCardOptional = Optional.ofNullable(cashCardRepository.findByIdAndOwner(requestedId, principal.getName()));
 
     // cashCardOptional.isPresent() can be true or false!
     if (cashCardOptional.isPresent()) {
@@ -50,8 +51,9 @@ class CashCardController {
   }
 
   @GetMapping()
-  private ResponseEntity<Iterable<CashCard>> findAll(Pageable pageable) {
-    Page<CashCard> page = cashCardRepository.findAll(
+  private ResponseEntity<Iterable<CashCard>> findAll(Pageable pageable, Principal principal) {
+    Page<CashCard> page = cashCardRepository.findByOwner(
+      principal.getName(),
       PageRequest.of(
         pageable.getPageNumber(),
         pageable.getPageSize(),
