@@ -43,6 +43,12 @@ class SecurityConfig {
       .roles("NON-OWNER")
       .build();
 
+    UserDetails bocchi = users
+      .username("bocchi")
+      .password(passwordEncoder.encode("xyz789"))
+      .roles("CARD-OWNER")
+      .build();
+
     return new InMemoryUserDetailsManager(jowel, hankOwnsNoCards);
   }
 
