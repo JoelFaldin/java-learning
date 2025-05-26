@@ -223,4 +223,13 @@ class CashCardApplicationTests {
 
     assertThat(getResponse.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
   }
+
+  @Test
+  void shouldNotDeleteACashCardThatDoesNotExists() {
+    ResponseEntity<Void> response = restTemplate
+      .withBasicAuth("jowel", "abc123")
+      .exchange("/cashcards/99999", HttpMethod.DELETE, null, Void.class);
+
+    assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
+  }
 }
