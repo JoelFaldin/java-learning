@@ -49,7 +49,7 @@ class SecurityConfig {
       .roles("CARD-OWNER")
       .build();
 
-    return new InMemoryUserDetailsManager(jowel, hankOwnsNoCards);
+    return new InMemoryUserDetailsManager(jowel, hankOwnsNoCards, bocchi);
   }
 
   @Bean
